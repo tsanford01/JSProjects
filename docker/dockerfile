@@ -1,0 +1,22 @@
+
+FROM python:3
+
+#Install Ansible from source (master)
+RUN sudo apt update -y && sudo apt install python3-pip -y
+RUN pip install --user ansible requests docker‑py  #docker inventory plugin
+RUN sudo apt upgrade -y
+
+#ENV PATH /opt/ansible/bin:$PATH
+#ENV PYTHONPATH $PYTHONPATH:/opt/ansible/lib
+#ENV ANSIBLE_LIBRARY /opt/ansible/library
+
+#setup ssh
+#RUN mkdir /root/.ssh
+#ADD ansible_id_rsa /root/.ssh/id_rsa
+#ADD ansible_id_rsa.pub /root/.ssh/id_rsa.pub
+
+#extend Ansible
+#use an inventory directory for multiple inventories support
+#RUN mkdir ‑p /etc/ansible/inventory && cp /opt/ansible/plugins/inventory/docker.py /etc/ansible/inventory/
+#ADD ansible.cfg  /etc/ansible/ansible.cfg
+#ADD hosts  /etc/ansible/inventory/hosts
